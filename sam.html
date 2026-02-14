@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Daisy ❤️</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffd6e8,#e6ccff);
+    color:#5a2a4d;
+    overflow-x:hidden;
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    color:rgba(255,105,180,0.5);
+    animation:floatUp linear infinite;
+    z-index:0;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0) scale(1);opacity:1;}
+    100%{transform:translateY(-100vh) scale(1.5);opacity:0;}
+}
+
+/* Sections */
+section{
+    padding:80px 20px;
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+h1{
+    font-family:'Great Vibes',cursive;
+    font-size:60px;
+    margin-bottom:20px;
+    opacity:0;
+    animation:fadeIn 2s forwards;
+}
+
+p{
+    max-width:750px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+    opacity:0;
+    animation:fadeIn 3s forwards;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+button{
+    margin-top:40px;
+    padding:15px 30px;
+    border:none;
+    border-radius:50px;
+    background:#ff99cc;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff66a3;
+    transform:scale(1.05);
+}
+
+/* Countdown */
+.countdown{
+    font-size:28px;
+    margin-top:20px;
+    font-weight:600;
+}
+
+/* Gallery */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* VIDEO MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(5px);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.modal-content{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    width:100%;
+    max-width:800px;
+    position:relative;
+    animation:fadeIn 0.5s ease forwards;
+}
+
+.close{
+    position:absolute;
+    top:10px;
+    right:20px;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.video-wrapper{
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+}
+
+.video-wrapper iframe{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:15px;
+}
+
+@media(max-width:768px){
+    h1{font-size:40px;}
+    p{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Floating Hearts Script -->
+<script>
+for(let i=0;i<25;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(6+Math.random()*6)+"s";
+    document.body.appendChild(heart);
+}
+</script>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <!-- EDIT HEADLINE HERE -->
+    <h1>I Miss You So Much, Daisy ❤️</h1>
+</section>
+
+<!-- MESSAGE SECTION -->
+<section>
+    <!-- EDIT MESSAGE HERE -->
+    <p>
+        I miss you deeply. Even though we are apart right now,
+        I know we will be together very soon.
+        <br><br>
+        Thank you for staying by my side all these years.
+        Thank you for choosing me as your Valentine again.
+        I will always love you the most.
+        <br><br>
+        I LOVE YOU Daisyyyyy ❤️
+    </p>
+</section>
+
+<!-- COUNTDOWN SECTION -->
+<section>
+    <h1>Until I See You Again (lil spoiler sorryy) </h1>
+    <div class="countdown" id="countdown"></div>
+</section>
+
+<script>
+/* CHANGE COUNTDOWN DATE HERE */
+const meetDate = new Date("February 26, 2026 00:00:00").getTime();
+
+setInterval(function(){
+    const now = new Date().getTime();
+    const distance = meetDate - now;
+
+    const days = Math.floor(distance/(1000*60*60*24));
+    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+    const seconds = Math.floor((distance%(1000*60))/1000);
+
+    document.getElementById("countdown").innerHTML =
+    days+"d "+hours+"h "+minutes+"m "+seconds+"s";
+
+    if(distance<0){
+        document.getElementById("countdown").innerHTML="We Are Finally Together ❤️";
+    }
+},1000);
+</script>
+
+<!-- GALLERY -->
+<section>
+    <h1>Our Cute Moments</h1>
+    <div class="gallery">
+        <!-- REPLACE IMAGE LINKS BELOW -->
+        <img src="https://res.cloudinary.com/du3j3e89g/image/upload/v1771077427/IMG_3_r3e9ne.jpg">
+        <img src="https://res.cloudinary.com/du3j3e89g/image/upload/v1771077740/WhatsApp_Image_2026-02-14_at_7.29.49_PM_cf4pjn.jpg">
+        <img src="https://res.cloudinary.com/du3j3e89g/image/upload/v1771077740/WhatsApp_Image_2026-02-14_at_7.28.58_PM_nfvlop.jpg">
+        <img src="https://res.cloudinary.com/du3j3e89g/image/upload/v1771077739/Screenshot_2026-02-14_193141_qczkev.png">
+        <img src="https://res.cloudinary.com/du3j3e89g/image/upload/v1771077741/WhatsApp_Image_2026-02-14_at_7.29.29_PM_xm8mvw.jpg">
+        <img src="https://res.cloudinary.com/du3j3e89g/image/upload/v1771077980/IMG_1_gz0ila.jpg">
+        <img src="https://res.cloudinary.com/du3j3e89g/image/upload/v1771078109/WhatsApp_Image_2026-02-14_at_7.37.57_PM_m8t8ap.jpg">
+        <img src="https://res.cloudinary.com/du3j3e89g/image/upload/v1771078109/WhatsApp_Image_2026-02-14_at_7.37.50_PM_f2yyp3.jpg  ">
+
+
+    </div>
+</section>
+
+<!-- VIDEO BUTTON SECTION -->
+<section>
+    <h1>A Special Message For You</h1>
+    <button onclick="openModal()">Click if You Miss Me</button>
+</section>
+
+<!-- VIDEO MODAL -->
+<div class="modal" id="videoModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <div class="video-wrapper">
+            <!-- 
+            REPLACE THE iframe BELOW WITH YOUR EMBED VIDEO LINK
+            Example: Paste full <iframe ...></iframe> from YouTube here
+            -->
+            <iframe src="https://player.cloudinary.com/embed/?cloud_name=du3j3e89g&public_id=1771080599033373_1_zk08io"
+            frameborder="0"
+            allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+function openModal(){
+    document.getElementById("videoModal").style.display="flex";
+}
+
+function closeModal(){
+    document.getElementById("videoModal").style.display="none";
+}
+</script>
+
+</body>
+</html>
